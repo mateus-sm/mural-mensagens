@@ -65,6 +65,8 @@ async function loadMessages() {
     const response = await fetch("mensagens.json")
     const messages = await response.json()
 
+    messages.sort((a, b) => a.mensagem.length - b.mensagem.length)
+
     container.innerHTML = ""
 
     for (const msg of messages) {
